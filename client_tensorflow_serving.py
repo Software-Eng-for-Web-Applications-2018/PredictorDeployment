@@ -33,7 +33,7 @@ class ClientChannels():
                 'amzn': implementations.insecure_channel('localhost', 9003),
                 'c': implementations.insecure_channel('localhost', 9004),
                 'goog': implementations.insecure_channel('localhost', 9005),
-                'googl': implementations.insecure_channel('localhost', 900),
+                'googl': implementations.insecure_channel('localhost', 9006),
                 'intc': implementations.insecure_channel('localhost', 9007),
                 'msft': implementations.insecure_channel('localhost', 9008),
                 'vz': implementations.insecure_channel('localhost', 9009)
@@ -44,7 +44,7 @@ class ClientChannels():
                 'amzn': implementations.insecure_channel('localhost', 9023),
                 'c': implementations.insecure_channel('localhost', 9024),
                 'goog': implementations.insecure_channel('localhost', 9025),
-                'googl': implementations.insecure_channel('localhost', 902),
+                'googl': implementations.insecure_channel('localhost', 9026),
                 'intc': implementations.insecure_channel('localhost', 9027),
                 'msft': implementations.insecure_channel('localhost', 9028),
                 'vz': implementations.insecure_channel('localhost', 9029)
@@ -57,7 +57,7 @@ class ClientChannels():
                 'amzn': implementations.insecure_channel('localhost', 9013),
                 'c': implementations.insecure_channel('localhost', 9014),
                 'goog': implementations.insecure_channel('localhost', 9015),
-                'googl': implementations.insecure_channel('localhost', 901),
+                'googl': implementations.insecure_channel('localhost', 9016),
                 'intc': implementations.insecure_channel('localhost', 9017),
                 'msft': implementations.insecure_channel('localhost', 9018),
                 'vz': implementations.insecure_channel('localhost', 9019),
@@ -68,7 +68,7 @@ class ClientChannels():
                 'amzn': implementations.insecure_channel('localhost', 9033),
                 'c': implementations.insecure_channel('localhost', 9034),
                 'goog': implementations.insecure_channel('localhost', 9035),
-                'googl': implementations.insecure_channel('localhost', 903),
+                'googl': implementations.insecure_channel('localhost', 9036),
                 'intc': implementations.insecure_channel('localhost', 9037),
                 'msft': implementations.insecure_channel('localhost', 9038),
                 'vz': implementations.insecure_channel('localhost', 9039)
@@ -78,9 +78,7 @@ class ClientChannels():
                                                                                                           
     def inference(self, freq, ml_type, sym, val_x):                                                                           
         if ml_type == 'neur': model_name = 'NNModel'                                                           
-        elif ml_type == 'svm':
-            model_name = 'SVMMODEL'                                                           
-            val_x = np.array(val_x[0]).reshape((1, 1))
+        elif ml_type == 'svm': model_name = 'SVMMODEL'                                                           
         elif ml_type == 'bay': model_name = 'BayesianModel'                                                           
         else: return {}
 
