@@ -7,6 +7,7 @@ cd stock-data-SVM-predictor
 chmod +x ./BuildModels.sh
 ./BuildModels.sh
 cd ..
-
-
-
+cd stock-data-bayesian-predictor
+chmod +x ./BuildModels.sh
+./BuildModels.sh
+cd ..
