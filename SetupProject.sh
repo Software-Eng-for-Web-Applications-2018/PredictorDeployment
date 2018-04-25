@@ -20,3 +20,7 @@ sudo -H pip3 install -r stock-data-site/requirements.txt
 sudo -H pip3 install -r stock-data-feed/requirements.txt
 sudo -H pip3 install -r stock-data-neural-network-predictor/requirements.txt
 sudo -H pip3 install -r stock-data-SVM-predictor/requirements.txt
+
+#Fix for stupid issue 
+sudo -H pip3 install --ignore-installed aboleth
+
