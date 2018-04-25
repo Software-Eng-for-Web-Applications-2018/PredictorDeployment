@@ -80,7 +80,7 @@ class ClientChannels():
         if ml_type == 'neur': model_name = 'NNModel'                                                           
         elif ml_type == 'svm':
             model_name = 'SVMMODEL'                                                           
-            val_x = list(val_x[0])
+            val_x = np.array(val_x[0]).reshape((1, 1))
         elif ml_type == 'bay': model_name = 'BayesianModel'                                                           
         else: return {}
 
