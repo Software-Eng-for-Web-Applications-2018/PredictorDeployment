@@ -108,7 +108,6 @@ def inference(freq, ml_type, sym):
     request_data = request.json                                                                           
     input_data = np.expand_dims(np.array(request_data), 0)                                                
     result, label = run.inference(freq, ml_type, sym, input_data)                                                             
-    print(result)
     floats = result.outputs['output'].float_val                                                           
     return jsonify({'ScaledPrediction': floats[0]})                                                       
                                                                                                           
