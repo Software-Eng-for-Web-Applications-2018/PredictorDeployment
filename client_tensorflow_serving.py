@@ -1,6 +1,7 @@
-
 """This script wraps the client into a Flask server. It receives POST request with                        
 prediction data, and forward the data to tensorflow server for inference.                                 
+
+TODO: Need to add original reference author. We modified this to use multiple channels.
 
 Modified to accommedate multiple serving models.
 """                                                                                                       
@@ -48,7 +49,18 @@ class ClientChannels():
                 'intc': implementations.insecure_channel('localhost', 9027),
                 'msft': implementations.insecure_channel('localhost', 9028),
                 'vz': implementations.insecure_channel('localhost', 9029)
-            }
+            }, 'bay': {                                                       
+                'aaba': implementations.insecure_channel('localhost', 9040),  
+                'aapl': implementations.insecure_channel('localhost', 9041),  
+                'amd': implementations.insecure_channel('localhost', 9042),   
+                'amzn': implementations.insecure_channel('localhost', 9043),  
+                'c': implementations.insecure_channel('localhost', 9044),     
+                'goog': implementations.insecure_channel('localhost', 9045),  
+                'googl': implementations.insecure_channel('localhost', 9046), 
+                'intc': implementations.insecure_channel('localhost', 9047),  
+                'msft': implementations.insecure_channel('localhost', 9048),  
+                'vz': implementations.insecure_channel('localhost', 9049)     
+            }                                                                 
         }, 'hist': {
             'neur': {
                 'aaba': implementations.insecure_channel('localhost', 9010),
@@ -72,14 +84,25 @@ class ClientChannels():
                 'intc': implementations.insecure_channel('localhost', 9037),
                 'msft': implementations.insecure_channel('localhost', 9038),
                 'vz': implementations.insecure_channel('localhost', 9039)
-            }
+            }, 'bay': {                                                        
+                'aaba': implementations.insecure_channel('localhost', 9050),   
+                'aapl': implementations.insecure_channel('localhost', 9051),   
+                'amd': implementations.insecure_channel('localhost', 9052),    
+                'amzn': implementations.insecure_channel('localhost', 9053),   
+                'c': implementations.insecure_channel('localhost', 9054),      
+                'goog': implementations.insecure_channel('localhost', 9055),   
+                'googl': implementations.insecure_channel('localhost', 9056),  
+                'intc': implementations.insecure_channel('localhost', 9057),   
+                'msft': implementations.insecure_channel('localhost', 9058),   
+                'vz': implementations.insecure_channel('localhost', 9059)      
+            }                                                                  
         }
     }
                                                                                                           
     def inference(self, freq, ml_type, sym, val_x):                                                                           
         if ml_type == 'neur': model_name = 'NNModel'                                                           
         elif ml_type == 'svm': model_name = 'SVMMODEL'                                                           
-        elif ml_type == 'bay': model_name = 'BayesianModel'                                                           
+        elif ml_type == 'bay': model_name = 'BAYMODEL'                                                           
         else: return {}
 
         try:                                                                                               
